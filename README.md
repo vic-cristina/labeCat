@@ -7,7 +7,8 @@ Cada gato possui um nome, raça, peso, idade e imagem correspondente.
 
 ###### Ressalvas
 
-- Devido a uma peculiariedade ainda não contornada do useState(), é necessário **clicar no botão duas vezes para que o filtro funcione propriamente**.
+- ~~Devido a uma peculiariedade ainda não contornada do useState(), é necessário **clicar no botão duas vezes para que o filtro funcione propriamente**.~~
+- useEffect alimenta o pai com o state(cats) atualizado a cada clique do botão, corrigindo assim o problema supracitado.
 - Ajustar a responsividade da navbar para telas com largura inferior a 640px;
 - É possível checar o progresso do projeto no meu repositório da Labenu.
 
