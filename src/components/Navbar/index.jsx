@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar = ({ catData, onGetFilteredCats }) => {
   const [cats, setCats] = useState([]);
@@ -10,6 +10,11 @@ const Navbar = ({ catData, onGetFilteredCats }) => {
     // if (searchedCat === "") setCats(cat_db);
   };
 
+  const gambiarra = () => {
+    handleClick();
+    handleClick();
+  };
+
   const handleClick = () => {
     const filteredCats = catData.filter((cat) => {
       if (cat.name.toLowerCase().includes(searchedCat.toLowerCase()))
@@ -17,10 +22,10 @@ const Navbar = ({ catData, onGetFilteredCats }) => {
       if (cat.breed.toLowerCase().includes(searchedCat.toLowerCase()))
         return cat;
     });
-    //BUG O state (cats) está atrasado, o que requer que o usuário clique duas vezes no botão para que handleClick() funcione. Sei que o state entra em cache e é atualizado na próxima renderização, para corrigir tal comportamento acredito que seria necessário utilizar useEffect(), mas deixemos isto para o próximo projeto.
     setCats(filteredCats);
     console.log("Filtered cats", cats);
-    onGetFilteredCats(cats);
+    // onGetFilteredCats(cats);
+    //COMMENT Ao invés de mandar o state para o componente pai (App) na função handleClick, usamos um useEffect, que imediatamente alimenta o pai com os dados do array filtrado, a cada vez que a função handleClick() é chamada.
     if (searchedCat === "") {
       alert("Por favor, procure pelo nome ou raça");
     }
@@ -46,6 +51,11 @@ const Navbar = ({ catData, onGetFilteredCats }) => {
     );
   }
 
+  useEffect(() => {
+    onGetFilteredCats(cats);
+  }, [handleClick]);
+  //COMMENT A cada vez que handleClick é executada, alimentamos o componente pai com o state, que corresponde a filteredCats gerada em handleClick();
+
   return (
     <div className="navbar bg-base-100 fixed z-20 justify-end sm:flex-wrap sm:h-36 sm:flex-col xl:h-10">
       <div className="lg:min-h-full">
@@ -68,7 +78,7 @@ const Navbar = ({ catData, onGetFilteredCats }) => {
           />
         </div>
 
-        <button onClick={handleClick} className="btn btn-primary p-2">
+        <button onClick={gambiarra} className="btn btn-primary p-2">
           Find cats 🧡
         </button>
       </div>
