@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Navbar = ({ catData, onGetFilteredCats }) => {
+const Navbar = ({ catData, onGetFilteredCats, onCalcAverage }) => {
   const [cats, setCats] = useState([]);
   const [searchedCat, setSearchedCat] = useState("");
 
@@ -9,6 +9,7 @@ const Navbar = ({ catData, onGetFilteredCats }) => {
     console.log(event.target.value);
     // if (searchedCat === "") setCats(cat_db);
   };
+  //COMMENT Capturamos o valor do input dando a ele um atributo value, que recebe o state searchedCat. handleChange() nos garante que o valor do input mude a cada evento capturado. Então, em handleClick() utilizamos searchCat como critério de comparação com os dados extraídos do objeto cat.
 
   const handleClick = () => {
     const filteredCats = catData.filter((cat) => {
@@ -24,32 +25,17 @@ const Navbar = ({ catData, onGetFilteredCats }) => {
     if (searchedCat === "") {
       alert("Por favor, procure pelo nome ou raça");
     }
-    simpleAverage(cats);
   };
 
-  function simpleAverage(cats) {
-    let catWeight = [];
-    let catAge = [];
-    cats.forEach((cat) => {
-      catWeight.push(cat.weight);
-      catAge.push(cat.age);
-    });
-    const catWeightSum = catWeight.reduce((a, b) => a + b, 0);
-    const catAgeSum = catAge.reduce((a, b) => a + b, 0);
-    console.log(
-      "Média de peso dos gatos buscados",
-      (catWeightSum / catWeight.length).toFixed(2)
-    );
-    console.log(
-      "Média de idade dos gatos buscados",
-      (catAgeSum / catAge.length).toFixed(2)
-    );
-  }
+  const handleEnter = (event) => {
+    event.key === "Enter" ? handleClick() : null;
+  };
 
   useEffect(() => {
     onGetFilteredCats(cats);
+    onCalcAverage(cats);
   }, [handleClick]);
-  //COMMENT A cada vez que handleClick é executada, alimentamos o componente pai com o state, que corresponde a filteredCats gerada em handleClick();
+  //COMMENT A cada vez que handleClick é executada, alimentamos as funções do componente pai com o state, que corresponde a filteredCats gerada em handleClick();
 
   return (
     <div className="navbar bg-base-100 fixed z-20 justify-end sm:flex-wrap sm:h-36 max-sm:h-36 max-sm:flex-wrap max-sm:justify-start sm:flex-col xl:h-10  sm:max-w-screen">
@@ -70,6 +56,7 @@ const Navbar = ({ catData, onGetFilteredCats }) => {
             placeholder="Search"
             className="input input-bordered "
             onChange={handleChange}
+            onKeyDown={handleEnter}
           />
         </div>
 
