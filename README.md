@@ -1,5 +1,7 @@
 # labeCat
 
+## ```shell
+
 Primeiro projeto da Labenu, reformulado em React, que consiste em uma lista de gatos variados.
 Cada gato possui um nome, raça, peso, idade e imagem correspondente.
 É possível filtrar os cards que aparecem na tela tanto pelo nome, quanto pela raça dos gatos.

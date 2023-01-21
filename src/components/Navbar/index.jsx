@@ -4,11 +4,7 @@ const Navbar = ({ catData, onGetFilteredCats, onCalcAverage }) => {
   const [cats, setCats] = useState([]);
   const [searchedCat, setSearchedCat] = useState("");
 
-  const handleChange = (event) => {
-    setSearchedCat(event.target.value);
-    console.log(event.target.value);
-    // if (searchedCat === "") setCats(cat_db);
-  };
+  const handleChange = (event) => setSearchedCat(event.target.value);
   //COMMENT Capturamos o valor do input dando a ele um atributo value, que recebe o state searchedCat. handleChange() nos garante que o valor do input mude a cada evento capturado. Então, em handleClick() utilizamos searchCat como critério de comparação com os dados extraídos do objeto cat.
 
   const handleClick = () => {
@@ -19,7 +15,6 @@ const Navbar = ({ catData, onGetFilteredCats, onCalcAverage }) => {
         return cat;
     });
     setCats(filteredCats);
-    console.log("Filtered cats", cats);
     // onGetFilteredCats(cats);
     //COMMENT Ao invés de mandar o state para o componente pai (App) na função handleClick, usamos um useEffect, que imediatamente alimenta o pai com os dados do array filtrado, a cada vez que a função handleClick() é chamada.
     if (searchedCat === "") {
