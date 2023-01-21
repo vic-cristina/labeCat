@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const Card = ({ catName, catBreed, catWeight, catAge, catImg }) => {
   return (
-    <div className="card w-96 h bg-base-100 shadow-xl">
+    <div className="card w-96 bg-base-100 shadow-xl max-sm:scale-75 max-sm:mb-2">
       <figure className="px-10 pt-10 max-h-64">
         <img
           src={catImg}

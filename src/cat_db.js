@@ -1,10 +1,11 @@
 class Cat {
-  constructor(name, breed, weight, age, img) {
+  constructor(name, breed, weight, age, img, hasTutors) {
     this.name = name;
     this.breed = breed;
     this.weight = weight;
     this.age = age;
     this.img = img;
+    this.hasTutors = hasTutors;
   }
 }
 
@@ -13,14 +14,16 @@ const weslyn = new Cat(
   "Korat",
   7.1,
   6,
-  "https://cdn2.thecatapi.com/images/8k6.jpg"
+  "https://cdn2.thecatapi.com/images/8k6.jpg",
+  true
 );
 const cloud = new Cat(
   "Cloud",
   "Turkish Angora",
   4,
   4,
-  "https://cdn2.thecatapi.com/images/ee9.jpg"
+  "https://cdn2.thecatapi.com/images/ee9.jpg",
+  false
 );
 const longfang = new Cat(
   "Longfang",
