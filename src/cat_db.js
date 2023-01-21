@@ -61,7 +61,7 @@ const cloud = new Cat(
 );
 const longfang = new Cat(
   "Longfang",
-  "Brittish Shorthair",
+  "Persian",
   5,
   3,
   "https://cdn2.thecatapi.com/images/5h9.jpg"

@@ -14,9 +14,32 @@ function App() {
     return filteredCats;
   };
 
+  function calcAverage(cats) {
+    let catWeight = [];
+    let catAge = [];
+    cats.forEach((cat) => {
+      catWeight.push(cat.weight);
+      catAge.push(cat.age);
+    });
+    const catWeightSum = catWeight.reduce((a, b) => a + b, 0);
+    const catAgeSum = catAge.reduce((a, b) => a + b, 0);
+    console.log(
+      "Média de peso dos gatos buscados",
+      (catWeightSum / catWeight.length).toFixed(2)
+    );
+    console.log(
+      "Média de idade dos gatos buscados",
+      (catAgeSum / catAge.length).toFixed(2)
+    );
+  }
+
   return (
     <div data-theme="synthwave">
-      <Navbar onGetFilteredCats={getFilteredCats} catData={cats} />
+      <Navbar
+        onGetFilteredCats={getFilteredCats}
+        onCalcAverage={calcAverage}
+        catData={cats}
+      />
       <Grid cats={filteredCats.length > 0 ? filteredCats : cats} />
       <Footer />
     </div>
