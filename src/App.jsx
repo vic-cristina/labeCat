@@ -11,6 +11,7 @@ function App() {
 
   const getFilteredCats = (filteredCats) => {
     setFilteredCats(filteredCats);
+    console.log(filteredCats);
     return filteredCats;
   };
 
