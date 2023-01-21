@@ -10,11 +10,6 @@ const Navbar = ({ catData, onGetFilteredCats }) => {
     // if (searchedCat === "") setCats(cat_db);
   };
 
-  const gambiarra = () => {
-    handleClick();
-    handleClick();
-  };
-
   const handleClick = () => {
     const filteredCats = catData.filter((cat) => {
       if (cat.name.toLowerCase().includes(searchedCat.toLowerCase()))
@@ -57,7 +52,7 @@ const Navbar = ({ catData, onGetFilteredCats }) => {
   //COMMENT A cada vez que handleClick é executada, alimentamos o componente pai com o state, que corresponde a filteredCats gerada em handleClick();
 
   return (
-    <div className="navbar bg-base-100 fixed z-20 justify-end sm:flex-wrap sm:h-36 sm:flex-col xl:h-10">
+    <div className="navbar bg-base-100 fixed z-20 justify-end sm:flex-wrap sm:h-36 max-sm:h-36 max-sm:flex-wrap max-sm:justify-start sm:flex-col xl:h-10  sm:max-w-screen">
       <div className="lg:min-h-full">
         <a
           href="/"
@@ -67,19 +62,19 @@ const Navbar = ({ catData, onGetFilteredCats }) => {
         </a>
         <a className="p-5 normal-case text-xl">labeCat</a>
       </div>
-      <div className="flex justify-end">
-        <div className="form-control">
+      <div className="flex gap-2 lg:min-h-full max-sm:justify-start justify-end">
+        <div className="flex">
           <input
             type="text"
             value={searchedCat}
             placeholder="Search"
-            className="input input-bordered mx-20"
+            className="input input-bordered "
             onChange={handleChange}
           />
         </div>
 
-        <button onClick={gambiarra} className="btn btn-primary p-2">
-          Find cats 🧡
+        <button onClick={handleClick} className="btn btn-primary p-4">
+          <span className="max-sm:hidden">Find cats</span> <span>🧡</span>
         </button>
       </div>
     </div>
