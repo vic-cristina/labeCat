@@ -1,29 +1,63 @@
 class Cat {
-  constructor(name, breed, weight, age, img, hasTutors) {
+  constructor(name, breed, weight, age, img, myKittens) {
     this.name = name;
     this.breed = breed;
     this.weight = weight;
     this.age = age;
     this.img = img;
-    this.hasTutors = hasTutors;
+    this.myKittens = myKittens;
   }
 }
+
+const artemis = new Cat(
+  "Artemis",
+  "Mixed Russian Blue",
+  3.7,
+  6,
+  "/artemis.png",
+  true
+);
+
+const galatea = new Cat(
+  "Galatea",
+  "Mixed Turkish Angora",
+  5.2,
+  1,
+  "/galatea.png",
+  true
+);
+
+const merlin = new Cat(
+  "Merlin",
+  "Brazilian Shorthair",
+  4.5,
+  9,
+  "/merlin.png",
+  true
+);
+
+const morgana = new Cat(
+  "Morgana",
+  "Brazilian Tabby",
+  6.5,
+  8,
+  "/morgana.png",
+  true
+);
 
 const weslyn = new Cat(
   "Weslyn",
   "Korat",
   7.1,
   6,
-  "https://cdn2.thecatapi.com/images/8k6.jpg",
-  true
+  "https://cdn2.thecatapi.com/images/8k6.jpg"
 );
 const cloud = new Cat(
   "Cloud",
   "Turkish Angora",
   4,
   4,
-  "https://cdn2.thecatapi.com/images/ee9.jpg",
-  false
+  "https://cdn2.thecatapi.com/images/ee9.jpg"
 );
 const longfang = new Cat(
   "Longfang",
@@ -211,6 +245,10 @@ const athena = new Cat(
 );
 
 export const cat_db = [
+  artemis,
+  galatea,
+  merlin,
+  morgana,
   weslyn,
   cloud,
   longfang,
