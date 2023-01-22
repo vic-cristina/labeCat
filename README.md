@@ -15,3 +15,4 @@ _Sugestão: Pesquise por "turkish", "scottish", "brazilian"._
 - É possível checar o progresso do projeto anterior em vanillaJS no meu repositório da Labenu.
 
 https://user-images.githubusercontent.com/76884730/213893989-1554a8e2-66c4-4927-9604-a450fa667afb.mp4
+
