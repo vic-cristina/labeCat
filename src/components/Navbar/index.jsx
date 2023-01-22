@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./style.css";
 
 const Navbar = ({ catData, onGetFilteredCats, onCalcAverage }) => {
   const [cats, setCats] = useState([]);
@@ -33,17 +34,14 @@ const Navbar = ({ catData, onGetFilteredCats, onCalcAverage }) => {
   //COMMENT A cada vez que handleClick é executada, alimentamos as funções do componente pai com o state, que corresponde a filteredCats gerada em handleClick();
 
   return (
-    <div className="navbar bg-base-100 fixed z-20 justify-end sm:flex-wrap sm:h-36 max-sm:h-36 max-sm:flex-wrap max-sm:justify-start sm:flex-col xl:h-10  sm:max-w-screen">
+    <div className="labecat-navbar max-sm:px-5">
       <div className="lg:min-h-full">
-        <a
-          href="/"
-          className="btn-link rounded-xl antialiased animate-pulse w-20"
-        >
+        <a href="/" className="labenu-button">
           <img width={50} src="/labelogo.png" alt="" />
         </a>
-        <a className="p-5 normal-case text-xl">labeCat</a>
+        <a className="p-5 relative right-6 normal-case text-xl">labeCat</a>
       </div>
-      <div className="flex gap-2 lg:min-h-full max-sm:justify-start justify-end">
+      <div className="input-wrapper">
         <div className="flex">
           <input
             type="text"
@@ -55,7 +53,7 @@ const Navbar = ({ catData, onGetFilteredCats, onCalcAverage }) => {
           />
         </div>
 
-        <button onClick={handleClick} className="btn btn-primary p-4">
+        <button onClick={handleClick} className="find-cats-btn">
           <span className="max-sm:hidden">Find cats</span> <span>🧡</span>
         </button>
       </div>
