@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .cat-card {
+    @apply card w-96 scale-90 shadow-xl max-sm:scale-75 max-sm:mb-2;
+  }
+}

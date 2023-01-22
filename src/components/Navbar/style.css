@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .labecat-navbar {
+    @apply navbar bg-base-100 fixed z-20 justify-end sm:flex-wrap sm:h-36 max-sm:h-36 max-sm:flex-wrap max-sm:justify-start sm:flex-col xl:h-10;
+  }
+  .labenu-button {
+    @apply btn-link rounded-xl antialiased animate-pulse w-20;
+  }
+  .input-wrapper {
+    @apply flex gap-2 lg:min-h-full max-sm:justify-start justify-end;
+  }
+  .find-cats-btn {
+    @apply btn btn-primary p-4;
+  }
+}
